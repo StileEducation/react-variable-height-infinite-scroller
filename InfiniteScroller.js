@@ -7,7 +7,6 @@ function noop() {}
 const InfiniteScoller = React.createClass({
   propTypes: {
     averageElementHeight: PropTypes.number,
-    containerHeight: PropTypes.number.isRequired,
     totalNumberOfRows: PropTypes.number.isRequired,
     renderRow: PropTypes.func.isRequired,
     rowToJumpTo: PropTypes.shape({
@@ -166,7 +165,8 @@ const InfiniteScoller = React.createClass({
     }
     // check if the visible rows fill up the viewport
     // tnrtodo: maybe put logic in here to reshrink the number of rows to display... maybe...
-    if (visibleRowsContainer.getBoundingClientRect().height / 2 <= this.props.containerHeight) {
+    var containerHeight = ReactDOM.findDOMNode(this).offsetHeight;
+    if (visibleRowsContainer.getBoundingClientRect().height / 2 <= containerHeight) {
       // visible rows don't yet fill up the viewport, so we need to add rows
       if (this.rowStart + this.state.visibleRows.length < this.props.totalNumberOfRows) {
         // load another row to the bottom
@@ -256,7 +256,6 @@ const InfiniteScoller = React.createClass({
     this.bottomSpacerHeight = (this.props.totalNumberOfRows - 1 - this.rowEnd) * rowHeight;
 
     const infiniteContainerStyle = {
-      height: this.props.containerHeight,
       overflowY: 'scroll',
     };
 
