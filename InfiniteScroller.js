@@ -256,7 +256,7 @@ const InfiniteScoller = React.createClass({
     this.bottomSpacerHeight = (this.props.totalNumberOfRows - 1 - this.rowEnd) * rowHeight;
 
     const infiniteContainerStyle = {
-      overflowY: 'scroll',
+      overflowY: 'auto',
     };
 
     return (
