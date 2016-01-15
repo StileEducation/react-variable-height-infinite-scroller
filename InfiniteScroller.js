@@ -77,7 +77,7 @@ const InfiniteScoller = React.createClass({
   componentWillReceiveProps(nextProps) {
     const newNumberOfRowsToDisplay = this.state.visibleRows.length;
     if (nextProps.rowToJumpTo && this.props.rowToJumpTo !== nextProps.rowToJumpTo) {
-      this.prepareVisibleRows(nextProps.rowToJumpTo.row, newNumberOfRowsToDisplay);
+      this.prepareVisibleRows(nextProps.rowToJumpTo.row, newNumberOfRowsToDisplay, nextProps.totalNumberOfRows);
       this.rowJumpTriggered = true;
       this.rowJumpedTo = nextProps.rowToJumpTo.row;
     } else {
