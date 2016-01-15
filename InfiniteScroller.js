@@ -173,7 +173,7 @@ const InfiniteScoller = React.createClass({
         this.prepareVisibleRows(this.rowStart, this.state.visibleRows.length + 1);
       } else {
         // there aren't more rows that we can load at the bottom
-        if (this.rowStart - 1 > 0) {
+        if (this.rowStart > 0) {
           // so we load more at the top
           this.prepareVisibleRows(this.rowStart - 1, this.state.visibleRows.length + 1); // don't want to just shift view
         } else {
